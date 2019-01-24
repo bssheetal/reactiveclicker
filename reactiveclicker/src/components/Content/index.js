@@ -15,9 +15,10 @@ function Content() {
                 </div>
             </nav>
             <header class="header">
-
+            <h2>Clicky Game!</h2>
+            <h3>Click on an image to earn points, but don't click on any more than once!</h3>
             </header>
-
+            
         </div>
 
     )
