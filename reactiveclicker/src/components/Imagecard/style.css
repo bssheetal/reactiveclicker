@@ -1,0 +1,17 @@
+img{
+    width:200px;
+    height:200px;
+    margin: 8px 25px;
+    background-size: cover;
+    background-position: 50%;
+    border: 5px solid #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    cursor: pointer
+}
+
+.card{
+   
+        display: block;
+        float: left;
+}
