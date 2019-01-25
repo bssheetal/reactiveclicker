@@ -8,8 +8,8 @@ function Content(props) {
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo">Clicky Game</a>
                     <ul className="right">
-                        <li><p className="clickimgheader">Click an Image to begin!</p></li>
-                        <li><p className="tally">Tally:{props.tally}</p></li>
+                        <li><p className="clickimgheader">{props.gameverdict}</p></li>
+                        <li><p className="topscore">TopScore:{props.topscore}</p></li>
                         <li><p className="score">Score:{props.score}</p></li>
                     </ul>
                 </div>
