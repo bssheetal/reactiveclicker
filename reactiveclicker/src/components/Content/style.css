@@ -10,7 +10,7 @@ nav .nav-wrapper
 {
     position:fixed;
     width: 100%;
-    height: 15%;
+    height: 25%;
     background-color:powderblue;
     color:blue;
 }
@@ -28,7 +28,7 @@ nav .nav-wrapper
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcxXFb02-WxbiAh1BgyskGfEtgWoRyp-EZ_ecH1dmFm74dx8Lj");
     background-repeat: repeat;
     color:blue;
-    min-height: 400px;
+    min-height: 300px;
     padding: 180px 20px;
     padding-bottom: 140px;
     text-align: center;
@@ -42,4 +42,9 @@ body {
 
   main {
     flex: 1 0 auto;
+  }
+
+  .tally{
+   
+    margin-right:20px;
   }

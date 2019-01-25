@@ -3,25 +3,38 @@ import images from "./clicky.json"
 import './App.css';
 import Content from './components/Content/index.js';
 import Imagecard from './components/Imagecard/index.js';
-import Wrapper from './components/Wrapper/index.js'
 
 class App extends Component {
 
   state = {
-    images
+    images,
+    score: 0,
+    tally: 0
   };
+
+  handleImageClick = id => {
+    this.setState({tally:this.state.tally+1});
+    
+  }
 
   render() {
     return (
       <div>
-        <Content></Content>
-        {this.state.images.map(element => (
+        <Content
+          tally={this.state.tally}
           
-            <Imagecard
-              name={element.name}
-              image={element.image}
-            />
-         
+          score={this.state.score}
+        />
+        {this.state.images.map(element => (
+
+          <Imagecard
+            key={element.id}
+            id={element.id}
+            name={element.name}
+            image={element.image}
+            handleImageClick={this.handleImageClick}
+          />
+
         ))}
 
       </div>
