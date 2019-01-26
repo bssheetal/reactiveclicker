@@ -16,12 +16,7 @@ class App extends Component {
     gameverdict: "Click on an Image to begin"
   };
 
-  componentDidMount() {
-    // this.shuffle=new Shuffle(this.element.current,{
-    //   id:this.images.id
-    // });
-
-  }
+  
 
   shuffleArray = arr => {
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -50,7 +45,7 @@ class App extends Component {
         score: 0,
         clickedimages: [],
         topscore:this.state.topscore,
-        gameverdict: "You guessed incorrectly"
+        gameverdict: "You Guessed Incorrectly!"
       });
 
 
@@ -62,7 +57,7 @@ class App extends Component {
         score: this.state.score+1,
         topscore:this.state.topscore,
         clickedimages: [...this.state.clickedimages, id],
-        gameverdict: "You guessed correctly"
+        gameverdict: "You Guessed Correctly!"
       });
     }
 
