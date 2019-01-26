@@ -3,9 +3,6 @@ import images from "./clicky.json"
 import './App.css';
 import Content from './components/Content/index.js';
 import Imagecard from './components/Imagecard/index.js';
-// import { shuffle } from 'shuffle';
-// import shuffle from 'react-shuffle';
-var Shuffle=require('shuffle');
 
 class App extends Component {
 
@@ -23,20 +20,50 @@ class App extends Component {
     // this.shuffle=new Shuffle(this.element.current,{
     //   id:this.images.id
     // });
-    images.shuffle();
+
   }
+
+  shuffleArray = arr => {
+    for (let i = arr.length - 1; i >= 0; i--) {
+
+      let randomIndex = Math.floor(Math.random() * (i + 1));
+      let itemAtIndex = arr[randomIndex];
+
+      arr[randomIndex] = arr[i];
+      arr[i] = itemAtIndex;
+    }
+    return arr;
+  }
+
   handleImageClick = id => {
     //this.setState({ tally: this.state.tally + 1 });
+    let shuffledArray = this.shuffleArray(this.state.images);
+    console.log(shuffledArray);
+    this.setState({
+      images: shuffledArray
+    });
     const clickedearlier = this.state.clickedimages.includes(id);
     console.log("clicked earlier consists of" + clickedearlier);
     if (clickedearlier && (this.state.score <= this.state.topscore)) {
 
       this.setState({
         score: 0,
+        clickedimages: [],
+        topscore:this.state.topscore,
         gameverdict: "You guessed incorrectly"
       });
-      images.reset();
-      images.shuffle();
+
+
+    }
+
+    else if (!clickedearlier && (this.state.score<this.state.topscore))
+    {
+      this.setState({
+        score: this.state.score+1,
+        topscore:this.state.topscore,
+        clickedimages: [...this.state.clickedimages, id],
+        gameverdict: "You guessed correctly"
+      });
     }
 
     else {
@@ -47,12 +74,9 @@ class App extends Component {
         clickedimages: [...this.state.clickedimages, id],//es6 way to push into an array you cannot do push as state is immutable in react
         gameverdict: "You guessed correctly"
       });
-      this.shuffle.resetItems();
+      console.log(this.state);
+      
     }
-  }
-
-  rotateimages(images) {
-
   }
 
   render() {
@@ -64,7 +88,7 @@ class App extends Component {
           score={this.state.score}
         />
         {this.state.images.map(element => (
-          <Shuffle>
+
             <Imagecard
               key={element.id}
               id={element.id}
@@ -73,7 +97,7 @@ class App extends Component {
               handleImageClick={this.handleImageClick}
 
             />
-          </Shuffle>
+          
         ))}
 
       </div>

@@ -6,7 +6,7 @@ function Content(props) {
         <div>
             <nav>
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo">Clicky Game</a>
+                    <a href="#" classame="brand-logo">Clicky Game</a>
                     <ul className="right">
                         <li><p className="clickimgheader">{props.gameverdict}</p></li>
                         <li><p className="topscore">TopScore:{props.topscore}</p></li>
